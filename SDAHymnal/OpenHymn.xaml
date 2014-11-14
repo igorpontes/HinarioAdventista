@@ -1,0 +1,39 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="SDAHymnal.OpenHymn"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True" d:DesignHeight="768">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--ContentPanel -->
+        <Grid x:Name="ContentPanel"  Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition MaxHeight="50" />
+                <RowDefinition MaxHeight="50"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Left" Margin="10,10,0,0" Name="imageLogo" Stretch="Uniform" VerticalAlignment="Top" Source="/SDAHymnal;component/SDA_Logo.png" Width="90" Height="90" />
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Id}" Name="textBlock_TitleNumber"  HorizontalAlignment="Left" VerticalAlignment="Center" FontStretch="Condensed" FontSize="28" FontWeight="Normal" />
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Title}" Name="textBlock_Title"  HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="SemiBold" FontStretch="UltraCondensed" FontSize="30" TextTrimming="WordEllipsis" TextWrapping="NoWrap" />
+
+            <ScrollViewer Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" Name="scrollViewer1" VerticalAlignment="Top">
+                <TextBlock Name="textBlock_Hymn" TextWrapping="Wrap" Text="{Binding Lyric}" AllowDrop="False" FontWeight="Normal" FontStretch="Condensed" FontSize="30" HorizontalAlignment="Left" DataContext="{Binding}" />
+            </ScrollViewer>
+
+        </Grid>
+    </Grid>
+</phone:PhoneApplicationPage>

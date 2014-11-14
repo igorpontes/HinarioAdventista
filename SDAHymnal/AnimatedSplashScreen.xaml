@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="SDAHymnal.AnimatedSplashScreen"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="800" d:DesignWidth="480">
+
+    <Grid Background="White" Loaded="Start_Animations" x:Name="LayoutRoot2">
+        <Grid.Resources>
+            <Storyboard x:Name="myStoryboard">
+                <DoubleAnimation Duration="0:0:4"
+                             Storyboard.TargetName="PlaneProjectionRotationX_1"
+                             Storyboard.TargetProperty="GlobalOffsetX"
+                             To="-230" />
+            </Storyboard>
+        </Grid.Resources>
+
+        <Image Name="musicNote" Grid.Row="1" Source="MusicNotes.png" Width="700" Height="400" Stretch="Fill" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Image.Projection>
+                <PlaneProjection x:Name="PlaneProjectionRotationX_1" />
+            </Image.Projection>
+            <Image.RenderTransform>
+                <TranslateTransform x:Name="musicTranslate" X="20" Y="200"/>
+            </Image.RenderTransform>
+        </Image>
+        <Image Name="logo" Source="splash_hinario23.png" Grid.Row="0" Height="800" Width="480" VerticalAlignment="Top" HorizontalAlignment="Left" />
+
+    </Grid>
+</UserControl>
